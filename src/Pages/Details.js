@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../Components/Navbar'
+import Graph from '../Components/Graph'
 import { NavMenu,WholeContainer,Nav,NavLogo,NavBtn,NavRouter } from '../Components/Navbar/NavbarElements'
 import {GlobalStyles} from './GlobalStyle'
 import { animateScroll as scroll } from 'react-scroll'
@@ -44,7 +45,7 @@ const Details = () => {
         <>  
             <GlobalStyles light={lightTheme}/>
             <Navbar lightTheme={lightTheme}/>
-            
+            <Graph></Graph>
             <h1>Details</h1>
             <button onClick={themeToggler} >change</button>
         </>
