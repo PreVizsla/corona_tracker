@@ -5,7 +5,7 @@ import {GlobalStyles} from './GlobalStyle'
 import { animateScroll as scroll } from 'react-scroll'
 import logo from '../assets/images/logo_cropped.png'
 
-//export const lightTheme;
+import DarkModeToggle from "react-dark-mode-toggle";
 
 const Data = () => {
     let status;
@@ -41,8 +41,12 @@ const Data = () => {
         }
         lightTheme === true ? setTheme(false) : setTheme(true);
         
-    }
-    const toggler = <button onClick={themeToggler} >change</button>
+    }    
+    const toggler =<DarkModeToggle
+                        onChange={themeToggler}
+                        checked={!status}
+                        size={80}
+                    />
     return (
         <>  
             <GlobalStyles light={lightTheme}/>

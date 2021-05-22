@@ -5,10 +5,36 @@ import { ThreeBounce } from 'better-react-spinkit'
 import RadarGraph from '../RadarGraph';
 import CovidSummary from '../Card/CovidSummary';
 import axios from './axios';
-import { Line } from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2';
+import {Option} from './Graphelements';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 170,  
+    textAlign: "left",
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
+
 
 const Graph = ({lightTheme}) => {
+  const classes = useStyles();
+  const [age, setAge] = React.useState('');
 
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
@@ -19,7 +45,17 @@ const Graph = ({lightTheme}) => {
   const [country, setCountry] = useState('');
   const [coronaCountArray, setCoronaCountArray] = useState([]);
   const [label, setLabel] = useState([]);
-
+  const prefersDarkMode= lightTheme? false:true;
+  const theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode],
+  );
+  
   //componentDidMount
   useEffect(() => {
 
@@ -122,11 +158,13 @@ const Graph = ({lightTheme}) => {
     };
 
   }
-
+  
   if(loading) {
     return <p>Please wait while data is being fetched from the server...</p>
   }
   return (
+    
+    <ThemeProvider theme={theme}>
     <div className="App">
       <CovidSummary 
       
@@ -136,22 +174,51 @@ const Graph = ({lightTheme}) => {
         deaths={deaths}
         country={country}
       />
-
+      <br/>
       <div>
-        <select value={country} onChange={countryHandler}>
+        {/* <select value={country} onChange={countryHandler}>
           <option value="">Select Country</option>
           {
             covidSummary.Countries && covidSummary.Countries.map(country => 
             <option value={country.Slug}>{country.Country}</option>
             )
           }
-        </select>
+        </select> */}
+        <FormControl variant="filled" className={classes.formControl} color="white">
+          <InputLabel id="demo-simple-select-filled-label" color="white">Select Country</InputLabel>
+          <Select
+            labelId="demo-simple-select-filled-label"
+            id="demo-simple-select-filled"
+            value={country}
+            onChange={countryHandler}
+          >
+              <MenuItem value="">World</MenuItem>
+            {
+              covidSummary.Countries && covidSummary.Countries.map(country => 
+              <MenuItem value={country.Slug}>{country.Country}</MenuItem>
+              )
+            }
+          </Select>
+        </FormControl>
 
-        <select value={days} onChange={daysHandler}>
+        <FormControl variant="filled" className={classes.formControl}>
+          <InputLabel id="demo-simple-select-filled-label">Select Interval</InputLabel>
+          <Select
+            labelId="demo-simple-select-filled-label"
+            id="demo-simple-select-filled"
+            value={days}
+            onChange={daysHandler}
+          >
+              <MenuItem value="7">Last 7 days</MenuItem>
+              <MenuItem value="30">Last 30 days</MenuItem>
+              <MenuItem value="90">Last 90 days</MenuItem>
+          </Select>
+        </FormControl>
+        {/* <select value={days} onChange={daysHandler}>
             <option value="7">Last 7 days</option>
             <option value="30">Last 30 days</option>
             <option value="90">Last 90 days</option>
-        </select>
+        </select> */}
       </div>
 
       <LineGraph 
@@ -165,6 +232,7 @@ const Graph = ({lightTheme}) => {
         label = {label}
       />
     </div>
+    </ThemeProvider>
   );
 }
 
