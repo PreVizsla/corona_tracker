@@ -24,7 +24,7 @@ const Navbar = ({ lightTheme }) => {
                     </NavBtn>
                 </NavMenu>
             </WholeContainer>
-        =</Nav>
+        </Nav>
         </>
     )
 }

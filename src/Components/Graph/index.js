@@ -124,6 +124,7 @@ const Graph = ({lightTheme}) => {
         label={label}
       />
       <RadarGraph 
+        Theme = {lightTheme}
         yAxis = {coronaCountArray}
         label={label}
       />

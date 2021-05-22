@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../Components/Navbar'
 import Graph from '../Components/Graph'
 import { NavMenu,WholeContainer,Nav,NavLogo,NavBtn,NavRouter } from '../Components/Navbar/NavbarElements'
-import {GlobalStyles} from './GlobalStyle'
+import {GlobalStyles, Container} from './GlobalStyle'
 import { animateScroll as scroll } from 'react-scroll'
 import {useLocation} from 'react-router-dom';
 import logo from '../assets/images/logo_cropped.png'
@@ -45,9 +45,11 @@ const Details = () => {
         <>  
             <GlobalStyles light={lightTheme}/>
             <Navbar lightTheme={lightTheme}/>
-            <Graph lightTheme={lightTheme}/>
-            <h1>Details</h1>
-            <button onClick={themeToggler} >change</button>
+            <Container light={lightTheme}>
+                <Graph lightTheme={lightTheme}/>
+                <h1>Details</h1>
+                <button onClick={themeToggler} >change</button>
+            </Container>
         </>
     )
 }

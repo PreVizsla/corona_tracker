@@ -6,9 +6,10 @@ const LineGraph = (props) => {
         <div 
             style={{
                 width: '600px',
-                height: '600px',
+                height: '100%',
                 margin: '50px auto',
                 color: props.Theme? 'black': 'white',
+                backgroundColor: props.Theme? '': 'rgb(225, 225, 225)',
             }}
         >
             <Line data = {
@@ -20,9 +21,10 @@ const LineGraph = (props) => {
                         data: props.yAxis,
                         fill: true,
                         backgroundColor: props.Theme? 'rgb(255, 99, 132, 0.4)' : 'rgb(65,70,71,0.9)',
-                        borderColor: props.Theme? 'rgba(255, 99, 132, 0.2)' : 'white',
-                      },
-                    ],
+                        borderColor: props.Theme? 'rgba(255, 99, 132, 0.2)' : 'black',
+                        color: props.Theme? 'black': 'white',
+                    },
+                    ]
                   }
             } />
         </div>

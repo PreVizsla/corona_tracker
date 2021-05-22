@@ -8,6 +8,8 @@ const RadarGraph = (props) => {
                 width: '600px',
                 height: '600px',
                 margin: '50px auto',
+                color: props.Theme? 'black': 'white',
+                backgroundColor: props.Theme? '': 'rgb(225, 225, 225)',
             }}
         >
             <Radar data = {
@@ -17,8 +19,9 @@ const RadarGraph = (props) => {
                       {
                         label: '# of Cases',
                         data: props.yAxis,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: props.Theme? 'rgb(255, 99, 132, 0.4)' : 'rgb(65,70,71,0.9)',
+                        borderColor: props.Theme? 'rgba(255, 99, 132, 0.2)' : 'black',
+                        color: props.Theme? 'black': 'white',
                         borderWidth: 1,
                       },
                     ],
