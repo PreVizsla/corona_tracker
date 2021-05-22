@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import LineGraph from '../LineGraph';
 
 import RadarGraph from '../RadarGraph';
-import CovidSummary from '../CovidSummary';
+import CovidSummary from '../Card/CovidSummary';
 import axios from './axios';
 import { Line } from 'react-chartjs-2'
 
