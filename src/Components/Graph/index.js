@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import LineGraph from '../LineGraph';
+import RadarGraph from '../RadarGraph';
 import CovidSummary from '../CovidSummary';
 import axios from './axios';
 
@@ -65,8 +66,8 @@ function Graph() {
   }
 
   const getCoronaReportByDateRange = (countrySlug, from, to) => {
-
-    axios.get(`/country/${countrySlug}/status/confirmed?from=${from}T00:00:00Z&to=${to}T00:00:00Z`)
+  
+    axios.get(`/total/country/${countrySlug}/status/confirmed?from=${from}T00:00:00Z&to=${to}T00:00:00Z`)
     .then(res => {
       console.log(res);
 
@@ -116,6 +117,10 @@ function Graph() {
         </select>
       </div>
       <LineGraph 
+        yAxis = {coronaCountArray}
+        label={label}
+      />
+      <RadarGraph 
         yAxis = {coronaCountArray}
         label={label}
       />
