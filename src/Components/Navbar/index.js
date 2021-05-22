@@ -2,7 +2,7 @@ import React from 'react'
 import { NavMenu,WholeContainer,Nav,NavLogo,NavBtn,NavRouter } from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll'
 import logo from '../../assets/images/logo_cropped.png'
-const Navbar = ({ lightTheme }) => {
+const Navbar = ({ util, lightTheme }) => {
     
     const toggleHome = () => {
         scroll.scrollToTop();
@@ -21,6 +21,9 @@ const Navbar = ({ lightTheme }) => {
                     </NavBtn>
                     <NavBtn>
                         <NavRouter to={{pathname:"/Details",state:lightTheme}}  light={lightTheme} >Details</NavRouter>
+                    </NavBtn>
+                    <NavBtn>
+                        {util}
                     </NavBtn>
                 </NavMenu>
             </WholeContainer>

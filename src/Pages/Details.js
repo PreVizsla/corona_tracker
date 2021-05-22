@@ -41,10 +41,12 @@ const Details = () => {
         lightTheme === true ? setTheme(false) : setTheme(true);
         
     }
+    
+    const toggler = <button onClick={themeToggler} >change</button>
     return (
         <>  
             <GlobalStyles light={lightTheme}/>
-            <Navbar lightTheme={lightTheme}/>
+            <Navbar lightTheme={lightTheme} util={toggler}/>
             <Container light={lightTheme}>
                 <Graph lightTheme={lightTheme}/>
                 <h1>Details</h1>

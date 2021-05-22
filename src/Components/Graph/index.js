@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import LineGraph from '../LineGraph';
 
+import { ThreeBounce } from 'better-react-spinkit'
 import RadarGraph from '../RadarGraph';
 import CovidSummary from '../Card/CovidSummary';
 import axios from './axios';
 import { Line } from 'react-chartjs-2'
 
 const Graph = ({lightTheme}) => {
+
+
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deaths, setDeaths] = useState(0);
@@ -40,6 +43,13 @@ const Graph = ({lightTheme}) => {
       console.log(err);
     })
   }, []);
+  
+  if(loading) {
+    return <>
+      <p>Please wait while data is being fetched from the server...</p>
+      <ThreeBounce size={26} color='#ebc634'/>
+    </>
+  }
 
   const formatDate = (date) => {
     const d = new Date(date);
