@@ -67,25 +67,49 @@ const Graph = ({lightTheme}) => {
   }
 
   const getCoronaReportByDateRange = (countrySlug, from, to) => {
+    
+    
+    console.log("HEYYYY "+countrySlug);
+    if(countrySlug){
+      axios.get(`/total/country/${countrySlug}/status/confirmed?from=${from}T00:00:00Z&to=${to}T00:00:00Z`)
+      .then(res => {
+        console.log(res);
+
+        const yAxisCount = res.data.map(d => d.Cases); // Array
+        const xAxisLabel = res.data.map(d => d.Date);
+        const covidDetails = covidSummary.Countries.find(country => country.Slug === countrySlug);
+        
+        setCoronaCountArray(yAxisCount);
+        setConfirmedCases(covidDetails.TotalConfirmed);
+        setRecoveredCases(covidDetails.TotalRecovered);
+        setDeaths(covidDetails.TotalDeaths);
+        setLabel(xAxisLabel);
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    
+    }else{
+      axios.get(`/summary`)
+      .then(res => {
+        console.log(res);
+        setConfirmedCases(res.data.Global.TotalConfirmed);
+        setRecoveredCases(res.data.Global.NewRecovered);
+        setDeaths(res.data.Global.TotalDeaths);
+        setCovidSummary(res.data);
+
+        const covidDetails = covidSummary.Countries.find(country => country.Slug === countrySlug);
+        
+        setCoronaCountArray([]);
+        setLabel([]);
   
-    axios.get(`/total/country/${countrySlug}/status/confirmed?from=${from}T00:00:00Z&to=${to}T00:00:00Z`)
-    .then(res => {
-      console.log(res);
-
-      const yAxisCount = res.data.map(d => d.Cases); // Array
-      const xAxisLabel = res.data.map(d => d.Date);
-      const covidDetails = covidSummary.Countries.find(country => country.Slug === countrySlug);
-      
-      setCoronaCountArray(yAxisCount);
-      setConfirmedCases(covidDetails.TotalConfirmed);
-      setRecoveredCases(covidDetails.TotalRecovered);
-      setDeaths(covidDetails.TotalDeaths);
-      setLabel(xAxisLabel);
-
-    })
-    .catch(err => {
-      console.log(err);
-    })
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  
+    };
 
   }
 
@@ -112,21 +136,23 @@ const Graph = ({lightTheme}) => {
             )
           }
         </select>
+
         <select value={days} onChange={daysHandler}>
             <option value="7">Last 7 days</option>
             <option value="30">Last 30 days</option>
             <option value="90">Last 90 days</option>
         </select>
       </div>
+
       <LineGraph 
         Theme = {lightTheme}
         yAxis = {coronaCountArray}
-        label={label}
+        label = {label}
       />
       <RadarGraph 
         Theme = {lightTheme}
         yAxis = {coronaCountArray}
-        label={label}
+        label = {label}
       />
     </div>
   );
