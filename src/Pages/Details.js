@@ -45,7 +45,7 @@ const Details = () => {
         <>  
             <GlobalStyles light={lightTheme}/>
             <Navbar lightTheme={lightTheme}/>
-            <Graph></Graph>
+            <Graph lightTheme={lightTheme}/>
             <h1>Details</h1>
             <button onClick={themeToggler} >change</button>
         </>

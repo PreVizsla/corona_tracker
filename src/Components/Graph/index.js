@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import LineGraph from '../LineGraph';
-import CovidSummary from '../CovidSummary';
+import CovidSummary from '../Card/CovidSummary';
 import axios from './axios';
+import { Line } from 'react-chartjs-2'
 
-function Graph() {
-
+const Graph = ({lightTheme}) => {
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deaths, setDeaths] = useState(0);
@@ -90,10 +90,11 @@ function Graph() {
   if(loading) {
     return <p>Please wait while data is being fetched from the server...</p>
   }
-
   return (
     <div className="App">
       <CovidSummary 
+      
+        Theme = {lightTheme}
         confirmedCases={confirmedCases}
         recoveredCases={recoveredCases}
         deaths={deaths}
@@ -116,10 +117,13 @@ function Graph() {
         </select>
       </div>
       <LineGraph 
+        Theme = {lightTheme}
         yAxis = {coronaCountArray}
         label={label}
       />
-    </div>
+
+    </div> 
+    
   );
 }
 

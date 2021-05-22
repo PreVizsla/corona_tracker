@@ -6,7 +6,7 @@ export const Nav = styled.nav`
     justify-content: center;
     display: flex;
     position: sticky;
-    height: 100px;
+    height: 120px;
     align-items: center;
     
     z-index: 10;

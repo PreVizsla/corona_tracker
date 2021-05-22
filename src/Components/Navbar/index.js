@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavMenu,WholeContainer,Nav,NavLogo,NavBtn,NavRouter } from './NavbarElements'
-
 import { animateScroll as scroll } from 'react-scroll'
 import logo from '../../assets/images/logo_cropped.png'
 const Navbar = ({ lightTheme }) => {
@@ -25,7 +24,7 @@ const Navbar = ({ lightTheme }) => {
                     </NavBtn>
                 </NavMenu>
             </WholeContainer>
-            </Nav>
+        </Nav>
         </>
     )
 }

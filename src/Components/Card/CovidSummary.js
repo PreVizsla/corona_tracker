@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './Card'
+import {Card} from './CardElements'
 import CountUp from 'react-countup';
 
 const CovidSummary = (props) => {
@@ -19,7 +19,7 @@ const CovidSummary = (props) => {
                         display: 'flex',
                         justifyContent: 'center',
                     }}>
-                <Card>
+                <Card light={props.Theme}>
                     <span>Cases</span><br />
                     <span>{<CountUp
                             start={0}
@@ -27,7 +27,7 @@ const CovidSummary = (props) => {
                             duration={0.5}
                             separator=","/>}</span>
                 </Card>
-                <Card>
+                <Card light={props.Theme}>
                     <span>Recovered</span><br />
                     <span>{<CountUp
                             start={0}
@@ -35,7 +35,7 @@ const CovidSummary = (props) => {
                             duration={0.5}
                             separator=","/>}</span>
                 </Card>
-                <Card>
+                <Card light={props.Theme}>
                     <span>Deaths</span><br />
                     <span>{<CountUp
                             start={0}

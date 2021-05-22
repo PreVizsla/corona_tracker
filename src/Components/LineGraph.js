@@ -8,6 +8,7 @@ const LineGraph = (props) => {
                 width: '600px',
                 height: '600px',
                 margin: '50px auto',
+                color: props.Theme? 'black': 'white',
             }}
         >
             <Line data = {
@@ -18,8 +19,8 @@ const LineGraph = (props) => {
                         label: '# of Cases',
                         data: props.yAxis,
                         fill: true,
-                        backgroundColor: 'rgb(255, 99, 132, 0.4)',
-                        borderColor: 'rgba(255, 99, 132, 0.2)',
+                        backgroundColor: props.Theme? 'rgb(255, 99, 132, 0.4)' : 'rgb(65,70,71,0.9)',
+                        borderColor: props.Theme? 'rgba(255, 99, 132, 0.2)' : 'white',
                       },
                     ],
                   }
