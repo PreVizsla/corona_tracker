@@ -17,7 +17,7 @@ const Navbar = ({ util, lightTheme }) => {
                 </NavLogo>
                 <NavMenu>
                     <NavBtn>
-                        <NavRouter to={{pathname:"/", state:lightTheme}} light={lightTheme} >Data</NavRouter>
+                        <NavRouter to={{pathname:"/", state:lightTheme}} light={lightTheme} >Info</NavRouter>
                     </NavBtn>
                     <NavBtn>
                         <NavRouter to={{pathname:"/Details",state:lightTheme}}  light={lightTheme} >Details</NavRouter>

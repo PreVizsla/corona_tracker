@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar'
 import {GlobalStyles} from './GlobalStyle'
 import { animateScroll as scroll } from 'react-scroll'
 import logo from '../assets/images/logo_cropped.png'
-
+import Sympthoms from '../Components/Sympthoms'
 import DarkModeToggle from "react-dark-mode-toggle";
 
 const Data = () => {
@@ -52,7 +52,7 @@ const Data = () => {
             <GlobalStyles light={lightTheme}/>
             <Navbar lightTheme={lightTheme} util={toggler}/>
             
-            <h1>HI</h1>
+            <Sympthoms lightTheme={lightTheme}>tes</Sympthoms>
             <h1>HI</h1>
             <h1>HI</h1>
             <button onClick={themeToggler} >change</button>
