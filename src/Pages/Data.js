@@ -6,6 +6,7 @@ import { animateScroll as scroll } from 'react-scroll'
 import logo from '../assets/images/logo_cropped.png'
 import Sympthoms from '../Components/Sympthoms'
 import DarkModeToggle from "react-dark-mode-toggle";
+import Vaccine from '../Components/Vaccine'
 
 const Data = () => {
     let status;
@@ -52,10 +53,9 @@ const Data = () => {
             <GlobalStyles light={lightTheme}/>
             <Navbar lightTheme={lightTheme} util={toggler}/>
             
-            <Sympthoms lightTheme={lightTheme}>tes</Sympthoms>
-            <h1>HI</h1>
-            <h1>HI</h1>
-            <button onClick={themeToggler} >change</button>
+            <Sympthoms lightTheme={lightTheme} />
+            
+            <Vaccine lightTheme={lightTheme} />
         </>
     )
 }
