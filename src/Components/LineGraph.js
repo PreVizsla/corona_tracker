@@ -1,17 +1,9 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
-
+import { Container } from './GraphElements'
 const LineGraph = (props) => {
     return (
-        <div 
-            style={{
-                width: '600px',
-                height: '100%',
-                margin: '50px auto',
-                color: props.Theme? 'black': 'white',
-                backgroundColor: props.Theme? '': 'rgb(225, 225, 225)',
-            }}
-        >
+        <Container light={props.Theme}>
             <Line data = {
                 {
                     labels: props.label.map(l => l.substring(0,10)),
@@ -27,7 +19,7 @@ const LineGraph = (props) => {
                     ]
                   }
             } />
-        </div>
+        </Container>
     )
 }
 

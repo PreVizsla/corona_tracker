@@ -16,6 +16,8 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
     //background-color: red;
+
+    
 `
 export const Item = styled.div`
     display:flex;
@@ -36,7 +38,13 @@ export const Desc = styled.div`
     text-align: left;
     font-size: 18px;
     margin-left:30px;
-    font-weight: 500;
+    font-weight: 500; 
+    @media screen and (max-width: 1050px) {
+        font-size: 15px;
+    }
+    @media screen and (max-width: 700px) {
+        font-size: 14px;
+    }
 `
 export const Link = styled.a`
     text-decoration:none;

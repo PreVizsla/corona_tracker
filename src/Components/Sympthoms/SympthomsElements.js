@@ -10,11 +10,29 @@ export const Option = styled.option`
 `
 
 export const Container = styled.div`
-    margin-left:15%;
-    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    width:600px;
     text-align:center;
     align-items: center;
     flex-direction: column;
+
+    @media screen and (max-width: 1050px) {
+
+        width: 50%;
+    }
+    > h1 {
+        font-size: 32px;
+        @media screen and (max-width: 1050px) {
+            font-size: 31px;
+        }
+    }
+    > h3 {
+        font-size: 18px;
+        @media screen and (max-width: 1050px) {
+            font-size: 17px;
+        }
+    }
 `
 export const Item = styled.div`
     display:flex;
@@ -34,6 +52,10 @@ export const Desc = styled.div`
     font-size: 18px;
     margin-left:20px;
     font-weight: 500;
+
+    @media screen and (max-width: 1050px) {
+        font-size: 16px;
+    }
 `
 export const Link = styled.a`
     text-decoration:none;
@@ -43,4 +65,13 @@ export const Link = styled.a`
     &:active {
         color: ${({light})=>(light? 'blue':'red')};
     }
+`
+export const Sections = styled.div`
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    // background-color:red;
+    margin-left: ;
+    justify-content: space-between;
+    text-align:center;
 `

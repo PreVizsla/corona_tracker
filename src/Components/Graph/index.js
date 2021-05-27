@@ -221,11 +221,13 @@ const Graph = ({lightTheme}) => {
         </select> */}
       </div>
 
+      <h2>Line Graph</h2>
       <LineGraph 
         Theme = {lightTheme}
         yAxis = {coronaCountArray}
         label = {label}
       />
+      <h2>Radar Graph</h2>
       <RadarGraph 
         Theme = {lightTheme}
         yAxis = {coronaCountArray}

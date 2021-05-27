@@ -53,9 +53,9 @@ const Data = () => {
             <GlobalStyles light={lightTheme}/>
             <Navbar lightTheme={lightTheme} util={toggler}/>
             
-            <Sympthoms lightTheme={lightTheme} />
-            
-            <Vaccine lightTheme={lightTheme} />
+                <Sympthoms lightTheme={lightTheme} />
+                
+                <Vaccine lightTheme={lightTheme} />
         </>
     )
 }

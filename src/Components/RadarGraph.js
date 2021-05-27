@@ -1,17 +1,11 @@
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
+import { Container } from './GraphElements'
 
 const RadarGraph = (props) => {
     return (
-        <div 
-            style={{
-                width: '600px',
-                height: '600px',
-                margin: '50px auto',
-                color: props.Theme? 'black': 'white',
-                backgroundColor: props.Theme? '': 'rgb(225, 225, 225)',
-            }}
-        >
+
+        <Container light={props.Theme}>
             <Radar data = {
                 {
                     labels: props.label.map(l => l.substring(0,10)),
@@ -27,7 +21,7 @@ const RadarGraph = (props) => {
                     ],
                   }
             } />
-        </div>
+        </Container>
     )
 }
 
